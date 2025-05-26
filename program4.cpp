@@ -17,11 +17,27 @@ class SinglyLL
         void InsertFirst(int No);
         void InsertLast(int No);
         void Display();
+        void InsertatPos(int pos, int No);
+        void count();
 };
 
 SinglyLL::SinglyLL()
 {
     head = NULL;
+}
+
+void SinglyLL:: count()
+{
+   struct node * temp = head;
+    int count = 0;
+
+   while(temp != NULL)
+   {
+        temp = temp->next;
+        count++;
+   }
+
+   cout<<"Number of elements are : "<<count<<"\n";
 }
 
 void SinglyLL::Display()
@@ -70,6 +86,7 @@ void SinglyLL::InsertLast(int No)
     temp->next = newNode;
 }
 
+
 int main()
 {
     SinglyLL obj;
@@ -79,9 +96,12 @@ int main()
     obj.InsertFirst(51);
     
     obj.Display();
+    obj.count();
 
     obj.InsertLast(91);
 
     obj.Display();
+    obj.count();
+
     return 0;
 }

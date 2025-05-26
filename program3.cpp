@@ -62,7 +62,7 @@ void SinglyLL::InsertLast(int No)
         temp = temp->next;
     }
 
-    struct node *newNode = new node;
+    struct node *newNode = new node;  // allocate memory for new node
 
     newNode->data = No;
     newNode->next = NULL;
