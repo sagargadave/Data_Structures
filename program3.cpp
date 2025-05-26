@@ -32,7 +32,7 @@ void SinglyLL::Display()
         cout << temp->data << " -> ";
         temp = temp->next;
     }
-    cout << "NULL" << endl;
+    cout << "NULL" << "\n";
 }
 
 void SinglyLL::InsertFirst(int No)
