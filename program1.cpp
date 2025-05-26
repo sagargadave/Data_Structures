@@ -24,7 +24,7 @@ SinglyLL::SinglyLL()
 
 void SinglyLL::InsertFirst(int No)
 {
-    node* newNode = new node;   // allocate memory for new node
+    struct node* newNode = new node;   // allocate memory for new node
 
     newNode->data = No;
     newNode->next = NULL;

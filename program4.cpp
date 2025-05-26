@@ -15,7 +15,8 @@ class SinglyLL
     public:
         SinglyLL();              // Constructor
         void InsertFirst(int No);
-        void Display();   
+        void InsertLast(int No);
+        void Display();
 };
 
 SinglyLL::SinglyLL()
@@ -23,9 +24,20 @@ SinglyLL::SinglyLL()
     head = NULL;
 }
 
+void SinglyLL::Display()
+{
+    struct node * temp = head;
+    while (temp != NULL)
+    {
+        cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    cout << "NULL" << endl;
+}
+
 void SinglyLL::InsertFirst(int No)
 {
-   struct node* newNode = new node;   // allocate memory for new node
+    struct node* newNode = new node;   // allocate memory for new node
 
     newNode->data = No;
     newNode->next = NULL;
@@ -41,15 +53,21 @@ void SinglyLL::InsertFirst(int No)
     }
 }
 
-void SinglyLL::Display()
+void SinglyLL::InsertLast(int No)
 {
-    struct node* temp = head;
-    while (temp != NULL)
+    struct node *temp = head;
+
+    while(temp->next != NULL)
     {
-        cout << temp->data << " -> ";
         temp = temp->next;
     }
-    cout << "NULL" << endl;
+
+    struct node *newNode = new node;
+
+    newNode->data = No;
+    newNode->next = NULL;
+
+    temp->next = newNode;
 }
 
 int main()
@@ -59,9 +77,11 @@ int main()
     obj.InsertFirst(11);
     obj.InsertFirst(21);
     obj.InsertFirst(51);
-
-    cout << "Linked List: ";
+    
     obj.Display();
 
+    obj.InsertLast(91);
+
+    obj.Display();
     return 0;
 }
