@@ -217,5 +217,5 @@ int main()
 
     cout<<"Number of elements are : "<<obj.count()<<"\n";
 
-    return;
+    return 0;
 }
