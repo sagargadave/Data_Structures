@@ -40,15 +40,6 @@ int SinglyLL::Count()
 
 void SinglyLL:: Display()
 {
-    struct node *temp = head;
-
-    while(temp != nullptr)
-    {
-        cout<<temp->data<<"->";
-        temp = temp->next;
-    }
-
-    cout<<"NULL"<<endl;
 
 }
 
@@ -104,8 +95,6 @@ int main()
     sll.InsertFirst(11);
     sll.InsertFirst(21);
     sll.InsertFirst(51);
-
-    sll.Display();
     
     return 0;
 }
