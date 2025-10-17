@@ -67,7 +67,28 @@ void DoublyLL::InsertFirst(int no)
 
 void DoublyLL::InsertLast(int no) 
 {
+    struct node * newNode = new node;
 
+    newNode->data = no;
+    newNode->prev = nullptr;
+    newNode->next = nullptr;
+
+    if(head == nullptr)
+    {
+        head = newNode;
+    }
+    else
+    {
+        struct node *temp = head;
+
+        while(temp->next != nullptr)
+        {
+            temp = temp->next;
+        }
+
+        newNode->prev = temp;
+        temp->next = newNode;
+    }
 }
 
 void DoublyLL::InsertAtPos(int pos,int no) 
