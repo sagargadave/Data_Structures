@@ -72,6 +72,7 @@ void SinglyCircular :: DeleteAtPos(int Pos)
 
 int main()
 {
+    SinglyCircular obj;
 
     return 0;
 }
