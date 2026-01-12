@@ -3,7 +3,6 @@
 // node structure for Singly Circular Linked List
 struct node 
 {
-    struct node *prev;
     int data;
     struct node *next;
 };
