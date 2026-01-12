@@ -1,4 +1,5 @@
 #include<iostream>
+using namespace std;
 
 // node structure for Singly Circular Linked List
 struct node 
