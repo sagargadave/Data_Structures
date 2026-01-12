@@ -39,16 +39,7 @@ SinglyCircular :: SinglyCircular()
 
 void SinglyCircular :: Display()
 {
-    struct node *temp = head;
 
-    do
-    {
-        cout<<temp->data<<"->";
-        temp = temp->next;
-    }
-    while(temp != head);
-
-    cout<<"\n";
 }
 
 int SinglyCircular :: Count()
@@ -105,8 +96,6 @@ int main()
     obj.InsertFirst(11);
     obj.InsertFirst(21);
     obj.InsertFirst(51);
-
-    obj.Display();
-
+    
     return 0;
 }
