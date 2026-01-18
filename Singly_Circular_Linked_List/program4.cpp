@@ -39,6 +39,8 @@ SinglyCircular :: SinglyCircular()
 
 void SinglyCircular :: Display()
 {
+    if(head == nullptr) return;
+    
     struct node *temp = head;
 
     do{
@@ -80,13 +82,20 @@ void SinglyCircular :: InsertFirst(int no)
 
 void SinglyCircular :: InsertLast(int no)
 {
-    struct node *newNode = new node;
+    if(head == nullptr)
+    {
+        InsertFirst(no);
+    }
+    else
+    {
+        struct node *newNode = new node;
 
-    newNode->data = no;
-    newNode->next = head;
+        newNode->data = no;
+        newNode->next = head;
 
-    tail->next = newNode;
-    tail = newNode;
+        tail->next = newNode;
+        tail = newNode;
+    }
 }
 
 void SinglyCircular :: DeleteFirst()
