@@ -13,6 +13,7 @@ class SinglyCircular
 {
 private:
     node *head;
+    node *tail;
 
 public:
     SinglyCircular();                          // Constructor
