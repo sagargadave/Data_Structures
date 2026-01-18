@@ -11,11 +11,10 @@ struct node
 // Class for Singly Circular Linked List
 class SinglyCircular
 {
-    private :
-    struct node *head;
+private:
+    node *head;
 
-    public:
-
+public:
     SinglyCircular();                          // Constructor
 
     void InsertFirst(int no);                  // Insert node at the beginning 
@@ -23,7 +22,7 @@ class SinglyCircular
     void InsertAtPos(int no, int Pos);         // Insert node at Position
 
     void DeleteFirst();                        // Delete first node
-    void DeletLast();                          // Delete last node 
+    void DeleteLast();                         // Delete last node 
     void DeleteAtPos(int Pos);                 // Delete node at a given position
 
     void Display();                            // Display all nodes
@@ -32,12 +31,11 @@ class SinglyCircular
 
 SinglyCircular :: SinglyCircular()
 {
-    head = nullptr;
+    head = NULL;
 }
 
 void SinglyCircular :: Display()
 {
-
 }
 
 int SinglyCircular :: Count()
@@ -47,32 +45,30 @@ int SinglyCircular :: Count()
 
 void SinglyCircular :: InsertFirst(int no)
 {
-
 }
 
 void SinglyCircular :: InsertLast(int no)
 {
+}
 
+void SinglyCircular :: InsertAtPos(int no, int Pos)
+{
 }
 
 void SinglyCircular :: DeleteFirst()
 {
-
 }
 
-void SinglyCircular :: DeletLast()
+void SinglyCircular :: DeleteLast()
 {
-
 }
 
 void SinglyCircular :: DeleteAtPos(int Pos)
 {
-
 }
 
 int main()
 {
     SinglyCircular obj;
-
     return 0;
 }
