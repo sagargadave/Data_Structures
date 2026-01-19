@@ -32,7 +32,8 @@ public:
 
 SinglyCircular :: SinglyCircular()
 {
-    head = NULL;
+    head = nullptr;
+    tail = nullptr;
 }
 
 void SinglyCircular :: Display()
