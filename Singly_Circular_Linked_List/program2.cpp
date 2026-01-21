@@ -13,6 +13,7 @@ class SinglyCircular
 {
 private:
     node *head;
+    node *tail;
 
 public:
     SinglyCircular();                          // Constructor
@@ -31,7 +32,8 @@ public:
 
 SinglyCircular :: SinglyCircular()
 {
-    head = NULL;
+    head = nullptr;
+    tail = nullptr;
 }
 
 void SinglyCircular :: Display()
@@ -84,5 +86,10 @@ void SinglyCircular :: DeleteAtPos(int Pos)
 int main()
 {
     SinglyCircular obj;
+
+    obj.InsertFirst(11);
+    obj.InsertFirst(21);
+    obj.InsertFirst(51);
+
     return 0;
 }
