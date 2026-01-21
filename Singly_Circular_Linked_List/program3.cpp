@@ -104,6 +104,6 @@ int main()
     obj.InsertFirst(51);
 
     obj.Display();
-    
+  
     return 0;
 }
