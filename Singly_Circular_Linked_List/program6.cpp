@@ -1,0 +1,199 @@
+#include<iostream>
+using namespace std;
+
+// node structure for Singly Circular Linked List
+struct node 
+{
+    int data;
+    struct node *next;
+};
+
+// Class for Singly Circular Linked List
+class SinglyCircular
+{
+private:
+    node *head;
+    node *tail;
+
+public:
+    SinglyCircular();                          // Constructor
+
+    void InsertFirst(int no);                  // Insert node at the beginning 
+    void InsertLast(int no);                   // Insert node at the Last
+    void InsertAtPos(int no, int Pos);         // Insert node at Position
+
+    void DeleteFirst();                        // Delete first node
+    void DeleteLast();                         // Delete last node 
+    void DeleteAtPos(int Pos);                 // Delete node at a given position
+
+    void Display();                            // Display all nodes
+    int Count();                               // Count the number of nodes
+};
+
+SinglyCircular :: SinglyCircular()
+{
+    head = nullptr;
+    tail = nullptr;
+}
+
+void SinglyCircular :: Display()
+{
+    if(head == nullptr)
+    {
+        cout<<"Linked List is Empty \n";
+    }
+    else
+    {
+        node *temp = head;
+
+        do{
+            cout<<temp->data<<"->";
+            temp = temp->next;
+        }while(temp != head);
+
+        cout<<"\n";
+    }
+}
+
+int SinglyCircular :: Count()
+{
+    if(head == nullptr)
+    {
+        return 0;
+    }
+    else
+    {
+        node *temp = head;
+        int count = 0;
+
+        do{
+            count++;
+            temp = temp->next;
+        }while(temp != head);
+
+        return count;
+    }
+
+}
+
+void SinglyCircular :: InsertFirst(int no)
+{
+    node *newNode = new node;
+    newNode->data = no;
+
+    if(head == nullptr)
+    {
+        head = tail = newNode;
+        newNode->next = newNode;
+    }
+    else
+    {
+        newNode->next = head;
+        head = newNode;
+        tail->next = head;
+    }
+}
+
+void SinglyCircular :: InsertLast(int no)
+{
+    if(head == nullptr)
+    {
+        InsertFirst(no);
+    }
+    else
+    {
+        node *newNode = new node;
+
+        newNode->data = no;
+        newNode->next = head;
+
+        tail->next = newNode;
+        tail = newNode;
+    }
+}
+
+void SinglyCircular :: InsertAtPos(int no, int Pos)
+{    
+    int count = this->Count();
+
+    if(head == nullptr)
+    {
+        cout<<"Linked List is empty \n";
+        return;
+    }
+    else if(Pos == 1)
+    {
+        InsertFirst(no);
+    }
+    else if(Pos == count+1)
+    {
+        InsertLast(no);
+    }
+    else if(Pos < 1 || Pos > count)
+    {
+        cout<<"Enter a valid position";
+        return;
+    }
+    else
+    {
+        node *prev = nullptr;
+        node *temp = head;
+
+        node *newNode = new node;
+        newNode->data = no;
+        newNode->next = nullptr;
+
+        for(count = 1; count<Pos; count++)
+        {
+            prev = temp;
+            temp = temp->next;
+        }
+
+        prev->next = newNode;
+        newNode->next = temp;
+    }
+}
+
+void SinglyCircular :: DeleteFirst()
+{
+}
+
+void SinglyCircular :: DeleteLast()
+{
+}
+
+void SinglyCircular :: DeleteAtPos(int Pos)
+{
+}
+
+int main()
+{
+    SinglyCircular obj;
+
+    obj.InsertFirst(11);
+    obj.InsertFirst(21);
+    obj.InsertFirst(51);
+
+    obj.Display();
+    
+    int count = obj.Count();
+    cout<<"Number of elements in Linked List : "<<count<<"\n";
+
+    obj.InsertLast(101);
+    obj.InsertLast(111);
+    obj.InsertLast(151);
+
+    obj.Display();
+
+    count = obj.Count();
+    cout<<"Number of elements in Linked List : "<<count<<"\n";
+
+    obj.InsertAtPos(7,7);
+
+    obj.Display();    
+
+    count = obj.Count();
+    cout<<"Number of elements in Linked List : "<<count<<"\n";
+    
+    return 0;
+}
