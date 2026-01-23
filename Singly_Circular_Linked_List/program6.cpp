@@ -111,46 +111,37 @@ void SinglyCircular :: InsertLast(int no)
         tail = newNode;
     }
 }
-
+    
 void SinglyCircular :: InsertAtPos(int no, int Pos)
 {    
-    int count = this->Count();
+    int size = this->Count();
 
-    if(head == nullptr)
+    if(Pos < 1 || Pos > size+1)
     {
-        cout<<"Linked List is empty \n";
+        cout<<"Enter a valid position\n";
         return;
     }
     else if(Pos == 1)
     {
         InsertFirst(no);
     }
-    else if(Pos == count+1)
+    else if(Pos == size+1)
     {
         InsertLast(no);
     }
-    else if(Pos < 1 || Pos > count)
-    {
-        cout<<"Enter a valid position";
-        return;
-    }
     else
     {
-        node *prev = nullptr;
         node *temp = head;
-
         node *newNode = new node;
         newNode->data = no;
-        newNode->next = nullptr;
 
-        for(count = 1; count<Pos; count++)
+        for(int i = 1; i < Pos-1; i++)
         {
-            prev = temp;
             temp = temp->next;
         }
 
-        prev->next = newNode;
-        newNode->next = temp;
+        newNode->next = temp->next;
+        temp->next = newNode;
     }
 }
 
